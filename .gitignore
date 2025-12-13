@@ -1,0 +1,9 @@
+# binaries
+/go-test-web
+
+# OS
+.DS_Store
+
+# local env files
+.env
+.env.*

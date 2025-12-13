@@ -1,0 +1,10 @@
+.git
+.DS_Store
+
+# editors
+.vscode
+.idea
+
+# go
+**/*.test
+**/*.out
