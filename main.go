@@ -15,6 +15,8 @@ import (
 	"time"
 )
 
+var version = "dev"
+
 func main() {
 	logger := log.New(os.Stdout, "", log.LstdFlags)
 
@@ -42,6 +44,11 @@ func main() {
 		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 		w.WriteHeader(http.StatusOK)
 		_, _ = w.Write([]byte("ready"))
+	})
+	mux.HandleFunc("GET /version", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+		w.WriteHeader(http.StatusOK)
+		_, _ = w.Write([]byte(version))
 	})
 
 	server := &http.Server{

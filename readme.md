@@ -38,3 +38,14 @@ Run:
 ```bash
 docker run --rm -p 8080:8080 -e HELLO_MSG="umet.cz test page" go-test-web:local
 ```
+
+## Release / versioning
+
+This repo publishes images to GHCR on SemVer tags.
+
+- Create a tag like `v0.1.0` and push it.
+- GitHub Actions will:
+	- build + push `ghcr.io/mj41/go-test-web:v0.1.0`
+	- create a GitHub Release for that tag
+
+The running service exposes its build version at `GET /version`.
