@@ -49,3 +49,15 @@ This repo publishes images to GHCR on SemVer tags.
 	- create a GitHub Release for that tag
 
 The running service exposes its build version at `GET /version`.
+
+### If GHCR push fails (permission_denied: write_package)
+
+Two common fixes:
+
+1) In the GitHub repo settings, enable write permissions for Actions:
+	- Settings → Actions → General → Workflow permissions → select "Read and write permissions".
+
+2) Or use a Personal Access Token for GHCR pushes:
+	- Create a PAT with `write:packages` (and `read:packages`).
+	- Add it as a repository secret named `GHCR_TOKEN`.
+	- The release workflow will prefer `GHCR_TOKEN` over `GITHUB_TOKEN`.
